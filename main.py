@@ -1,16 +1,32 @@
-# This is a sample Python script.
+import unittest
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+import page
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+class PythonOrgSearch(unittest.TestCase):
+    def setUp(self):
+        print("setUp")
+        chrome_options = Options()
+        chrome_options.add_experimental_option("detach", True)
+        self.driver = webdriver.Chrome(chrome_options)
+        self.driver.get('https://www.otodom.pl/')
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    def test_search_python(self):
+        main_page = page.MainPage(self.driver)
+        assert main_page.is_title_matches()
+        main_page.click_accept_button()
+        main_page.set_min_price("500000")
+        main_page.set_max_price("1000000")
+        main_page.click_search_button()
+        search_result_page = page.SearchResultPage(self.driver)
+        assert search_result_page.is_results_found()
+
+    # def tearDown(self):
+    # self.driver.close()
+
+
+if __name__ == "__main__":
+    unittest.main()
