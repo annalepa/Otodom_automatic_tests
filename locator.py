@@ -8,6 +8,10 @@ class MainPageLocators(object):
     ACCEPT_BUTTON = (By.ID, "onetrust-accept-btn-handler")
     AREA_MIN_INPUT = (By.ID, "areaMin")
     AREA_MAX_INPUT = (By.ID, "areaMax")
+    SEARCH_LOCATION_BUTTON = (By.ID, "location")
+    LOCATION_INPUT = (By.ID, "location-picker-input")
+    KRAKOW_LOCATION_LIST_ITEM = (By.XPATH, "//li[starts-with(@data-testid, 'suggestions-item')]")
+
 
 class SearchResultsPageLocators(object):
     pass

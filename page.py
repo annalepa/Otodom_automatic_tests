@@ -54,6 +54,26 @@ class MainPage(BasePage):
         element.clear()
         element.send_keys(value)
 
+    def click_location_button(self):
+        element = WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located(MainPageLocators.SEARCH_LOCATION_BUTTON)
+        )
+        element.click()
+
+    def set_location(self, value):
+        element = WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located(MainPageLocators.LOCATION_INPUT)
+        )
+        element.clear()
+        element.send_keys(value)
+
+    def click_krakow_location_list_item(self):
+        element = WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located(MainPageLocators.KRAKOW_LOCATION_LIST_ITEM)
+        )
+        element.click()
+
+
 
 
 class SearchResultPage(BasePage):
