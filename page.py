@@ -40,6 +40,21 @@ class MainPage(BasePage):
         element.clear()
         element.send_keys(value)
 
+    def set_min_area(self, value):
+        element = WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located(MainPageLocators.AREA_MIN_INPUT)
+        )
+        element.clear()
+        element.send_keys(value)
+
+    def set_max_area(self, value):
+        element = WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located(MainPageLocators.AREA_MAX_INPUT)
+        )
+        element.clear()
+        element.send_keys(value)
+
+
 
 class SearchResultPage(BasePage):
     def is_results_found(self):

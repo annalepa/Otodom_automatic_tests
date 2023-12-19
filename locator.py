@@ -6,7 +6,8 @@ class MainPageLocators(object):
     PRICE_MIN_INPUT = (By.ID, "priceMin")
     PRICE_MAX_INPUT = (By.ID, "priceMax")
     ACCEPT_BUTTON = (By.ID, "onetrust-accept-btn-handler")
-
+    AREA_MIN_INPUT = (By.ID, "areaMin")
+    AREA_MAX_INPUT = (By.ID, "areaMax")
 
 class SearchResultsPageLocators(object):
     pass

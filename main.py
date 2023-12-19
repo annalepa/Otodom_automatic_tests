@@ -20,6 +20,8 @@ class PythonOrgSearch(unittest.TestCase):
         main_page.click_accept_button()
         main_page.set_min_price("500000")
         main_page.set_max_price("1000000")
+        main_page.set_min_area("55")
+        main_page.set_max_area("70")
         main_page.click_search_button()
         search_result_page = page.SearchResultPage(self.driver)
         assert search_result_page.is_results_found()
