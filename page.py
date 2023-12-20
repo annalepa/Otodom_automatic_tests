@@ -16,7 +16,7 @@ class MainPage(BasePage):
 
     def click_search_button(self):
         element = WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located(MainPageLocators.SEARCH_BUTTON)
+            EC.element_to_be_clickable(MainPageLocators.SEARCH_BUTTON)
         )
         element.click()
 
