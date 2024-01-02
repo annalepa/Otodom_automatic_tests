@@ -2,6 +2,7 @@ import unittest
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
 
 import page
 
@@ -25,9 +26,18 @@ class PythonOrgSearch(unittest.TestCase):
         main_page.click_location_button()
         main_page.set_location("Kraków")
         main_page.click_krakow_location_list_item()
+        main_page.click_estate_type_list()
         main_page.click_search_button()
+
+
         search_result_page = page.SearchResultPage(self.driver)
         assert search_result_page.is_results_found()
+
+    def test_location_popup_menu_is_displayed(self):
+        main_page = page.MainPage(self.driver)
+        main_page.click_accept_button()
+        main_page.click_location_button()
+        assert main_page.search_from_location_list_is_displayed()
 
     # def tearDown(self):
     # self.driver.close()

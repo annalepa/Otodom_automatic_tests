@@ -11,6 +11,9 @@ class MainPageLocators(object):
     SEARCH_LOCATION_BUTTON = (By.ID, "location")
     LOCATION_INPUT = (By.ID, "location-picker-input")
     KRAKOW_LOCATION_LIST_ITEM = (By.XPATH, "//li[starts-with(@data-testid, 'suggestions-item')]")
+    ESTATE_TYPE_LIST_BUTTON = (By.XPATH, "//div[@data-cy='search-form--field--estate']//div[@aria-hidden]")
+    SEARCH_FROM_LOCATION_LIST = [By.XPATH,
+                                 '//*[@id="__next"]/main/section[1]/div/div/form/div/div[1]/div[3]/div/div[1]/div/div[2]']
 
 
 class SearchResultsPageLocators(object):

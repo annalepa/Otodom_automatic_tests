@@ -73,7 +73,17 @@ class MainPage(BasePage):
         )
         element.click()
 
+    def click_estate_type_list(self):
+        element = WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located(MainPageLocators.ESTATE_TYPE_LIST_BUTTON)
+        )
+        element.click()
 
+    def search_from_location_list_is_displayed(self):
+        element = WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located(MainPageLocators.SEARCH_FROM_LOCATION_LIST)
+        )
+        return element.is_displayed()
 
 
 class SearchResultPage(BasePage):
