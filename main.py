@@ -34,7 +34,8 @@ class PythonOrgSearch(unittest.TestCase):
         assert search_result_page.get_max_price() == "1000000"
         assert search_result_page.get_min_area() == "55"
         assert search_result_page.get_max_area() == "70"
-
+        print(f"Lokalizacja: {search_result_page.get_location()}")
+        assert search_result_page.get_location() == "Kraków"
 
 
     def test_location_popup_menu_is_displayed(self):

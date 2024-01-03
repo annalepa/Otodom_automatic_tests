@@ -117,27 +117,11 @@ class SearchResultPage(BasePage):
 
         return element.get_attribute('value')
 
-    def click_location_button(self):
-        element = WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located(SearchResultsPageLocators.SEARCH_LOCATION_BUTTON)
-        )
-        element.click()
-
-    def set_location(self, value):
+    def get_location(self) -> str:
         element = WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located(SearchResultsPageLocators.LOCATION_INPUT)
         )
-        element.clear()
-        element.send_keys(value)
 
-    def click_krakow_location_list_item(self):
-        element = WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located(SearchResultsPageLocators.KRAKOW_LOCATION_LIST_ITEM)
-        )
-        element.click()
+        return element.text
 
-    def click_estate_type_list(self):
-        element = WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located(SearchResultsPageLocators.ESTATE_TYPE_LIST_BUTTON)
-        )
-        element.click()
+
