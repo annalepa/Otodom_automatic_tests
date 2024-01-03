@@ -96,12 +96,12 @@ class SearchResultPage(BasePage):
         )
         return element.get_attribute('value')
 
-    def set_max_price(self, value):
+    def get_max_price(self) -> str:
         element = WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located(MainPageLocators.PRICE_MAX_INPUT)
         )
-        element.clear()
-        element.send_keys(value)
+
+        return element.get_attribute('value')
 
     def set_min_area(self, value):
         element = WebDriverWait(self.driver, 10).until(

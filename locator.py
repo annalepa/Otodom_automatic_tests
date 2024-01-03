@@ -18,4 +18,6 @@ class MainPageLocators(object):
 
 
 class SearchResultsPageLocators(object):
+    PRICE_MIN_INPUT = (By.ID, "priceMin")
+    PRICE_MAX_INPUT = (By.ID, "priceMax")
     pass
