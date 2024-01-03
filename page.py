@@ -92,52 +92,52 @@ class SearchResultPage(BasePage):
 
     def get_min_price(self) -> str:
         element = WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located(MainPageLocators.PRICE_MIN_INPUT)
+            EC.presence_of_element_located(SearchResultsPageLocators.PRICE_MIN_INPUT)
         )
         return element.get_attribute('value')
 
     def get_max_price(self) -> str:
         element = WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located(MainPageLocators.PRICE_MAX_INPUT)
+            EC.presence_of_element_located(SearchResultsPageLocators.PRICE_MAX_INPUT)
         )
 
         return element.get_attribute('value')
 
-    def set_min_area(self, value):
+    def get_min_area(self):
         element = WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located(MainPageLocators.AREA_MIN_INPUT)
+            EC.presence_of_element_located(SearchResultsPageLocators.AREA_MIN_INPUT)
         )
-        element.clear()
-        element.send_keys(value)
+
+        return element.get_attribute('value')
 
     def set_max_area(self, value):
         element = WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located(MainPageLocators.AREA_MAX_INPUT)
+            EC.presence_of_element_located(SearchResultsPageLocators.AREA_MAX_INPUT)
         )
         element.clear()
         element.send_keys(value)
 
     def click_location_button(self):
         element = WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located(MainPageLocators.SEARCH_LOCATION_BUTTON)
+            EC.presence_of_element_located(SearchResultsPageLocators.SEARCH_LOCATION_BUTTON)
         )
         element.click()
 
     def set_location(self, value):
         element = WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located(MainPageLocators.LOCATION_INPUT)
+            EC.presence_of_element_located(SearchResultsPageLocators.LOCATION_INPUT)
         )
         element.clear()
         element.send_keys(value)
 
     def click_krakow_location_list_item(self):
         element = WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located(MainPageLocators.KRAKOW_LOCATION_LIST_ITEM)
+            EC.presence_of_element_located(SearchResultsPageLocators.KRAKOW_LOCATION_LIST_ITEM)
         )
         element.click()
 
     def click_estate_type_list(self):
         element = WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located(MainPageLocators.ESTATE_TYPE_LIST_BUTTON)
+            EC.presence_of_element_located(SearchResultsPageLocators.ESTATE_TYPE_LIST_BUTTON)
         )
         element.click()

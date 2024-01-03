@@ -32,6 +32,7 @@ class PythonOrgSearch(unittest.TestCase):
         search_result_page = page.SearchResultPage(self.driver)
         assert search_result_page.get_min_price() == "500000"
         assert search_result_page.get_max_price() == "1000000"
+        assert search_result_page.get_min_area() == "55"
 
     def test_location_popup_menu_is_displayed(self):
         main_page = page.MainPage(self.driver)
