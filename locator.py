@@ -21,4 +21,5 @@ class SearchResultsPageLocators(object):
     PRICE_MIN_INPUT = (By.ID, "priceMin")
     PRICE_MAX_INPUT = (By.ID, "priceMax")
     AREA_MIN_INPUT = (By.ID, "areaMin")
+    AREA_MAX_INPUT = (By.ID, "areaMax")
     pass

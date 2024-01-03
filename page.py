@@ -103,19 +103,19 @@ class SearchResultPage(BasePage):
 
         return element.get_attribute('value')
 
-    def get_min_area(self):
+    def get_min_area(self) -> str:
         element = WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located(SearchResultsPageLocators.AREA_MIN_INPUT)
         )
 
         return element.get_attribute('value')
 
-    def set_max_area(self, value):
+    def get_max_area(self) -> str:
         element = WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located(SearchResultsPageLocators.AREA_MAX_INPUT)
         )
-        element.clear()
-        element.send_keys(value)
+
+        return element.get_attribute('value')
 
     def click_location_button(self):
         element = WebDriverWait(self.driver, 10).until(
