@@ -1,13 +1,14 @@
 import unittest
+from unittest import TestCase
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.common.by import By
 
-import page
+from page.main_page import MainPage
+from page.search_result_page import SearchResultPage
 
 
-class PythonOrgSearch(unittest.TestCase):
+class MainPageTestCase(TestCase):
     def setUp(self):
         print("setUp")
         chrome_options = Options()
@@ -15,8 +16,8 @@ class PythonOrgSearch(unittest.TestCase):
         self.driver = webdriver.Chrome(chrome_options)
         self.driver.get('https://www.otodom.pl/')
 
-    def test_search_python(self):
-        main_page = page.MainPage(self.driver)
+    def test_filters(self):
+        main_page = MainPage(self.driver)
         main_page.click_accept_button()
         main_page.set_min_price("500000")
         main_page.set_max_price("1000000")
@@ -29,7 +30,7 @@ class PythonOrgSearch(unittest.TestCase):
 
         main_page.click_search_button()
 
-        search_result_page = page.SearchResultPage(self.driver)
+        search_result_page = SearchResultPage(self.driver)
         assert search_result_page.get_min_price() == "500000"
         assert search_result_page.get_max_price() == "1000000"
         assert search_result_page.get_min_area() == "55"
@@ -37,9 +38,8 @@ class PythonOrgSearch(unittest.TestCase):
         print(f"Lokalizacja: {search_result_page.get_location()}")
         assert search_result_page.get_location() == "Kraków"
 
-
     def test_location_popup_menu_is_displayed(self):
-        main_page = page.MainPage(self.driver)
+        main_page = MainPage(self.driver)
         main_page.click_accept_button()
         main_page.click_location_button()
         assert main_page.search_from_location_list_is_displayed()

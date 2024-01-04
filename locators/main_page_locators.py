@@ -15,12 +15,3 @@ class MainPageLocators(object):
     SEARCH_FROM_LOCATION_LIST = [By.XPATH,
                                  '//*[@id="__next"]/main/section[1]/div/div/form/div/div[1]/div[3]/div/div['
                                  '1]/div/div[2]']
-
-
-class SearchResultsPageLocators(object):
-    PRICE_MIN_INPUT = (By.ID, "priceMin")
-    PRICE_MAX_INPUT = (By.ID, "priceMax")
-    AREA_MIN_INPUT = (By.ID, "areaMin")
-    AREA_MAX_INPUT = (By.ID, "areaMax")
-    LOCATION_INPUT = (By.XPATH, "//*[@id='location']/div[2]")
-    pass

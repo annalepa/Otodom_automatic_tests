@@ -1,16 +1,12 @@
-from selenium.webdriver.chrome.webdriver import WebDriver
-from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
-from locator import *
-
-
-class BasePage(object):
-    def __init__(self, driver: WebDriver):
-        self.driver = driver
+from locators.main_page_locators import MainPageLocators
+from page.base_page import BasePage
 
 
 class MainPage(BasePage):
+
     def is_title_matches(self) -> bool:
         return "Otodom" in self.driver.title
 
@@ -84,44 +80,3 @@ class MainPage(BasePage):
             EC.presence_of_element_located(MainPageLocators.SEARCH_FROM_LOCATION_LIST)
         )
         return element.is_displayed()
-
-
-class SearchResultPage(BasePage):
-    def is_results_found(self):
-        return "No results found" not in self.driver.page_source
-
-    def get_min_price(self) -> str:
-        element = WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located(SearchResultsPageLocators.PRICE_MIN_INPUT)
-        )
-        return element.get_attribute('value')
-
-    def get_max_price(self) -> str:
-        element = WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located(SearchResultsPageLocators.PRICE_MAX_INPUT)
-        )
-
-        return element.get_attribute('value')
-
-    def get_min_area(self) -> str:
-        element = WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located(SearchResultsPageLocators.AREA_MIN_INPUT)
-        )
-
-        return element.get_attribute('value')
-
-    def get_max_area(self) -> str:
-        element = WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located(SearchResultsPageLocators.AREA_MAX_INPUT)
-        )
-
-        return element.get_attribute('value')
-
-    def get_location(self) -> str:
-        element = WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located(SearchResultsPageLocators.LOCATION_INPUT)
-        )
-
-        return element.text
-
-
