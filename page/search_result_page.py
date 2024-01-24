@@ -1,3 +1,6 @@
+import self
+from selenium.webdriver.common.by import By
+
 from page.base_page import BasePage
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -38,3 +41,15 @@ class SearchResultPage(BasePage):
             EC.presence_of_element_located(SearchResultsPageLocators.LOCATION_INPUT)
         )
         return element.text
+
+    def click_three_rooms(self):
+        element = WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located(SearchResultsPageLocators.THREE_ROOMS_CLICK)
+        )
+        return element.click()
+
+    def click_four_rooms(self):
+        element = WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located(SearchResultsPageLocators.FOUR_ROOMS_CLICK)
+        )
+        return element.click()

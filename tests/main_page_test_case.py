@@ -37,6 +37,8 @@ class MainPageTestCase(TestCase):
         assert search_result_page.get_max_area() == "70"
         print(f"Lokalizacja: {search_result_page.get_location()}")
         assert search_result_page.get_location() == "Kraków"
+        search_result_page.click_three_rooms()
+        search_result_page.click_four_rooms()
 
     def test_location_popup_menu_is_displayed(self):
         main_page = MainPage(self.driver)
@@ -48,5 +50,4 @@ class MainPageTestCase(TestCase):
         self.driver.close()
 
 
-if __name__ == "__main__":
-    unittest.main()
+
