@@ -1,11 +1,8 @@
-import self
-from selenium.webdriver.common.by import By
-
-from page.base_page import BasePage
-from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
 
 from locators.search_result_page_locators import SearchResultsPageLocators
+from page.base_page import BasePage
 
 
 class SearchResultPage(BasePage):
@@ -53,3 +50,16 @@ class SearchResultPage(BasePage):
             EC.presence_of_element_located(SearchResultsPageLocators.FOUR_ROOMS_CLICK)
         )
         return element.click()
+
+    def click_accept_button(self):
+        element = WebDriverWait(self.driver, 10).until(
+                EC.presence_of_element_located(SearchResultsPageLocators.ACCEPT_BUTTON_CLICK)
+            )
+        return element.click()
+
+    def click_more_filters(self):
+        element = WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located(SearchResultsPageLocators.MORE_FILTERS_CLICK)
+        )
+        return element.click()
+

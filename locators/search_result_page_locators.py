@@ -9,4 +9,7 @@ class SearchResultsPageLocators(object):
     LOCATION_INPUT = (By.XPATH, "//*[@id='location']/div[2]")
     THREE_ROOMS_CLICK = (By.XPATH, "//*[@id='roomsNumber']/div[4]/label[1]")
     FOUR_ROOMS_CLICK = (By.XPATH, "//*[@id='roomsNumber']/div[5]/label[1]")
+    ACCEPT_BUTTON_CLICK = (By.XPATH, "//*[@id='onetrust-accept-btn-handler']")
+    MORE_FILTERS_CLICK = (By.XPATH, "//*[@id='search-form-more-filters']")
+
 

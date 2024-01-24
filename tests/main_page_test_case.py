@@ -46,6 +46,11 @@ class MainPageTestCase(TestCase):
         main_page.click_location_button()
         assert main_page.search_from_location_list_is_displayed()
 
+    def test_more_filters(self):
+        search_result_page = SearchResultPage(self.driver)
+        search_result_page.click_more_filters()
+
+
     def tearDown(self):
         self.driver.close()
 
