@@ -63,3 +63,14 @@ class SearchResultPage(BasePage):
         )
         return element.click()
 
+    def click_dropdown_floors(self) -> object:
+        element = WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located(SearchResultsPageLocators.DROPDOWN_FLOORS_CLICK)
+        )
+        return element.click()
+
+    def click_checkbox_second_floor(self):
+        element = WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located(SearchResultsPageLocators.CHECKBOX_SECOND_FLOOR_CLICK)
+        )
+        return element.click()

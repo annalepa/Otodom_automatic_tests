@@ -18,6 +18,8 @@ class SearchResultPageTestCase(TestCase):
         search_result_page = SearchResultPage(self.driver)
         search_result_page.click_accept_button()
         search_result_page.click_more_filters()
+        search_result_page.click_dropdown_floors()
+        search_result_page.click_checkbox_second_floor()
 
     def tearDown(self):
         self.driver.close()
